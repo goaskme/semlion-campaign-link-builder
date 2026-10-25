@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="A free local campaign URL builder from SEM Lion. Create UTM links while preserving existing query parameters and page fragments.">
+<title>Campaign Link Builder | SEM Lion</title>
+<style>
+:root{color-scheme:dark;--ink:#0b0b0d;--paper:#f4f1ea;--orange:#f34d28}*{box-sizing:border-box}body{margin:0;background:var(--ink);color:var(--paper);font:16px/1.6 Arial,Helvetica,sans-serif}main{max-width:860px;margin:0 auto;padding:44px 24px}.brand{font-size:14px;letter-spacing:.16em;color:#ff8e6e}h1{font-size:clamp(36px,7vw,62px);line-height:1.05;letter-spacing:-.04em;margin:24px 0}p{color:#bbb6ae}.fields{display:grid;grid-template-columns:1fr 1fr;gap:20px}.full{grid-column:1/-1}label{display:block;font-size:14px}label small{color:#aaa49a}input,textarea{width:100%;font:16px/1.5 Arial;padding:13px;margin-top:6px;background:#19191c;color:var(--paper);border:1px solid #746f67;border-radius:7px}input:focus,textarea:focus{outline:2px solid var(--orange);outline-offset:2px}button{font:700 15px Arial;padding:14px 20px;border-radius:30px;border:0;background:var(--orange);color:#0b0b0d;cursor:pointer}button:disabled{opacity:.5;cursor:default}.actions{display:flex;align-items:center;gap:16px;margin:24px 0}#notice{font-size:14px;color:#ffb99c}#result{height:160px;resize:vertical;overflow-wrap:anywhere}.note{font-size:13px}a{color:#ff9c7b;text-underline-offset:3px}footer{border-top:1px solid #ffffff30;margin-top:32px;padding-top:16px;font-size:14px}@media(max-width:600px){.fields{grid-template-columns:1fr}.full{grid-column:auto}}
+</style>
+</head>
+<body><main>
+<div class="brand">SEM LION / PRACTICAL MARKETING TOOLS</div>
+<h1>Campaign Link Builder</h1>
+<p>Create a UTM-tagged link for an external campaign. This page runs in your browser; it sends no form data and loads no analytics.</p>
+<form id="builder"><div class="fields">
+<label class="full">Destination URL<input type="url" name="url" placeholder="https://example.com/offer" autocomplete="off" required></label>
+<label>Source<input name="source" placeholder="newsletter" autocomplete="off" required></label>
+<label>Medium<input name="medium" placeholder="email" autocomplete="off" required></label>
+<label class="full">Campaign<input name="campaign" placeholder="autumn_launch" autocomplete="off" required></label>
+<label>Term <small>(optional)</small><input name="term" placeholder="keyword or audience" autocomplete="off"></label>
+<label>Content <small>(optional)</small><input name="content" placeholder="creative_a" autocomplete="off"></label>
+</div><div class="actions"><button type="submit">Build campaign link ↗</button><span id="notice" role="status" aria-live="polite"></span></div></form>
+<label for="result">Your campaign link</label><textarea id="result" readonly spellcheck="false" aria-describedby="result-note"></textarea>
+<div class="actions"><button type="button" id="copy" disabled>Copy link</button></div>
+<p class="note" id="result-note">Existing non-UTM parameters and page fragments are retained. These five UTM fields are replaced; blank optional fields remove old values. Avoid personal or confidential information in URLs. Keep a consistent naming convention and avoid UTM tags on internal navigation.</p>
+<footer>Created by <a href="https://www.semlion.com/">SEM Lion</a>. Explore our approach to <a href="https://www.semlion.com/services-pay-per-click-management-ppc/">Google Ads management</a> for Qatar and Romania.</footer>
+</main><script type="module">
+import {buildCampaignUrl} from './utm-builder.mjs';
+const form=document.getElementById('builder'),result=document.getElementById('result'),notice=document.getElementById('notice'),copy=document.getElementById('copy');
+form.addEventListener('submit',event=>{event.preventDefault();try{result.value=buildCampaignUrl(Object.fromEntries(new FormData(form)));copy.disabled=false;notice.textContent='Your link is ready.';}catch(error){result.value='';copy.disabled=true;notice.textContent=error.message;}});
+copy.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(result.value);notice.textContent='Copied.';}catch{result.focus();result.select();notice.textContent='Select and copy the link from the result field.';}});
+</script></body></html>
