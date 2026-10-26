@@ -36,6 +36,16 @@ Open `http://127.0.0.1:8080` in your browser. The local server is needed for the
 
 Keep a shared naming sheet, avoid personal or confidential information in URLs, and use campaign tags for external acquisition links. Internal-navigation UTM tags can confuse acquisition reporting. A tagged visit alone does not establish that an enquiry was qualified or caused by the campaign.
 
+## From a tagged visit to a useful enquiry
+
+Campaign parameters describe how a visitor arrived. Keep that label separate from the event that happened after arrival. A contact-button click, a completed form and a qualified enquiry have different meanings and should not be added together as though they represented three customers.
+
+For each event, write the exact trigger, the system that records it and the person who checks it. Record missing or delayed information before interpreting a total. SEM Lion's [tracking and attribution assessment](https://www.semlion.com/services-company-online-presence-analysis-and-audit/) describes the related measurement work.
+
+Next, open the tagged destination on a phone and follow the offer through to the contact route. Check whether the page explains the same promise as the advert and whether the visitor receives a clear outcome. A [conversion rate optimisation review](https://www.semlion.com/services-conversion-rate-optimization-cro/) is a related way to investigate observed friction.
+
+The free [campaign preflight and decision-log worksheet](https://gist.github.com/goaskme/00df6cf9cbc68e63489e41795f5c7163) provides an editable CSV and a review method. Its rows are illustrative and contain no performance results. The browser tool here remains a local URL builder; it does not collect enquiries or connect to analytics or CRM services.
+
 ## Verificare rapidă pentru România
 
 Alege o convenție pentru sursă, canal și campanie. Verifică pagina de destinație, păstrează denumirile consecvente și nu include date personale în linkuri. Citește despre [administrare Google Ads](https://www.semlion.com/ro/google-ads-ppc/) în abordarea SEM Lion.
