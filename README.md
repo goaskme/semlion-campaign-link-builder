@@ -59,3 +59,7 @@ node utm-builder.test.mjs
 ```
 
 The checks cover query and fragment preservation, replacing duplicate tags, clearing optional values, Unicode, invalid destinations and unchanged inputs.
+
+## Campaign handoff worksheet
+
+Use the [campaign link handoff checklist](campaign-link-handoff-checklist.md) to record the destination, language, event definition, automation scope and creative-variant question before sharing a tagged acquisition URL. It includes editable decision tables and a practical review prompt, without connecting accounts or claiming campaign results.
